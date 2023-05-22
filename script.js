@@ -5,9 +5,16 @@ import { textSummary } from "https://jslib.k6.io/k6-summary/0.0.1/index.js";
 export let options = {
   stages: [
     //endurance test
-    { duration: "1m", target: 100 }, // simulate ramp-up of traffic from 1 to 100 users over 5 minutes.
-    { duration: "3m", target: 100 }, // stay at 100 users for 10 minutes
-    { duration: "1m", target: 0 }, // ramp-down to 0 users
+    // { duration: "1m", target: 100 }, // simulate ramp-up of traffic from 1 to 100 users over 5 minutes.
+    // { duration: "3m", target: 100 }, // stay at 100 users for 10 minutes
+    // { duration: "1m", target: 0 }, // ramp-down to 0 users
+
+    //spike test
+    { duration: "10s", target: 50 },
+    { duration: "30s", target: 250 },
+    { duration: "10s", target: 50 },
+    { duration: "30s", target: 300 },
+    { duration: "10s", target: 0 },
   ],
 };
 
